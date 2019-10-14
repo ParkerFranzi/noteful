@@ -10,14 +10,14 @@ export default class NoteNav extends Component {
             <ul className="noteList">
                 {this.context.notes.map(note =>
                     <li key={note.id}>
-                        <Link to={`/note/${note.id}`}>
+                        <Link className={note.id} to={`/note/${note.id}`}>
                             <h2>{note.name}</h2>
                         </Link>
                         <p>{note.modified}</p>
                         <button onClick={(e) => this.context.handleDeleteClick(note.id, this.props, e)}>Delete Note</button>
                     </li>
                 )}
-                <Link to='/addNote'>
+                <Link className="addNoteLink" to='/addNote'>
                     Add Note
                 </Link>
             </ul>

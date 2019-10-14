@@ -13,7 +13,7 @@ export default class FolderNote extends Component {
         return (
             <ul className="folderList">
                 {folder.name}
-                <Link to='/addFolder'>
+                <Link className="addFolderLink" to='/addFolder'>
                     Add Folder
                 </Link>
             </ul>

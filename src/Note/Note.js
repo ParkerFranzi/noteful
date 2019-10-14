@@ -21,7 +21,7 @@ export default class Note extends Component {
                     <p className="noteContent">{note.content}</p>
                 </div>
                 )}
-                <Link to='/addNote'>
+                <Link className="addNoteLink" to='/addNote'>
                     Add Note
                 </Link>
             </ul>

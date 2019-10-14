@@ -11,6 +11,8 @@ import AddNote from '../Note/AddNote'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import PropTypes from 'prop-types';
+import FolderError from '../Folder/FolderError'
+import NoteError from '../Note/NoteError'
 import './Main.css'
 
 
@@ -105,33 +107,44 @@ export default class Main extends Component {
             <div className="main">
                 <Link to="/"><header><h1>Noteful</h1></header></Link>
                 <div className="sideBar">
-                    <Route
-                        exact path='/'
-                        component={FolderNav}
-                    />
-                    <Route
-                        path='/folder/:folderId'
-                        component={Folder}
-                    />
-                    <Route
-                        path='/note/:noteId'
-                        component={FolderNote}
-                    />
-
+                    <FolderError>
+                        <Route
+                            exact path='/'
+                            component={FolderNav}
+                        />
+                    </FolderError>
+                    <FolderError>
+                        <Route
+                            path='/folder/:folderId'
+                            component={Folder}
+                        />
+                    </FolderError>
+                    <FolderError>
+                        <Route
+                            path='/note/:noteId'
+                            component={FolderNote}
+                        />
+                    </FolderError>
                 </div>
                 <div className="notes">
-                    <Route
-                        exact path='/'
-                        component={NoteNav}
-                    />
-                    <Route
-                        path='/folder/:folderId'
-                        component={NoteNavFilter}
-                    />
-                    <Route
-                        path='/note/:noteId'
-                        component={Note}
-                    />
+                    <NoteError>
+                        <Route
+                            exact path='/'
+                            component={NoteNav}
+                        />
+                    </NoteError>
+                    <NoteError>
+                        <Route
+                            path='/folder/:folderId'
+                            component={NoteNavFilter}
+                        />
+                    </NoteError>
+                    <NoteError>
+                        <Route
+                            path='/note/:noteId'
+                            component={Note}
+                        />
+                    </NoteError>
                 </div>
                 <div className="addItem">
                     <Route
